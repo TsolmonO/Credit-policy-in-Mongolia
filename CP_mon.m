@@ -1,0 +1,543 @@
+%
+% Status : main Dynare file
+%
+% Warning : this file is generated automatically by Dynare
+%           from model file (.mod)
+
+if isoctave || matlab_ver_less_than('8.6')
+    clear all
+else
+    clearvars -global
+    clear_persistent_variables(fileparts(which('dynare')), false)
+end
+tic0 = tic;
+% Save empty dates and dseries objects in memory.
+dates('initialize');
+dseries('initialize');
+% Define global variables.
+global M_ options_ oo_ estim_params_ bayestopt_ dataset_ dataset_info estimation_info ys0_ ex0_
+options_ = [];
+M_.fname = 'CP_mon';
+M_.dynare_version = '4.5.7';
+oo_.dynare_version = '4.5.7';
+options_.dynare_version = '4.5.7';
+%
+% Some global variables initialization
+%
+global_initialization;
+diary off;
+diary('CP_mon.log');
+M_.exo_names = 'e_a';
+M_.exo_names_tex = 'e\_a';
+M_.exo_names_long = 'e_a';
+M_.exo_names = char(M_.exo_names, 'e_ksi');
+M_.exo_names_tex = char(M_.exo_names_tex, 'e\_ksi');
+M_.exo_names_long = char(M_.exo_names_long, 'e_ksi');
+M_.exo_names = char(M_.exo_names, 'e_g');
+M_.exo_names_tex = char(M_.exo_names_tex, 'e\_g');
+M_.exo_names_long = char(M_.exo_names_long, 'e_g');
+M_.exo_names = char(M_.exo_names, 'e_psi');
+M_.exo_names_tex = char(M_.exo_names_tex, 'e\_psi');
+M_.exo_names_long = char(M_.exo_names_long, 'e_psi');
+M_.exo_names = char(M_.exo_names, 'shock_e_i');
+M_.exo_names_tex = char(M_.exo_names_tex, 'shock\_e\_i');
+M_.exo_names_long = char(M_.exo_names_long, 'shock_e_i');
+M_.endo_names = 'S';
+M_.endo_names_tex = 'S';
+M_.endo_names_long = 'S';
+M_.endo_names = char(M_.endo_names, 'Y_obs');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Y\_obs');
+M_.endo_names_long = char(M_.endo_names_long, 'Y_obs');
+M_.endo_names = char(M_.endo_names, 'It_obs');
+M_.endo_names_tex = char(M_.endo_names_tex, 'It\_obs');
+M_.endo_names_long = char(M_.endo_names_long, 'It_obs');
+M_.endo_names = char(M_.endo_names, 'C_obs');
+M_.endo_names_tex = char(M_.endo_names_tex, 'C\_obs');
+M_.endo_names_long = char(M_.endo_names_long, 'C_obs');
+M_.endo_names = char(M_.endo_names, 'e_i');
+M_.endo_names_tex = char(M_.endo_names_tex, 'e\_i');
+M_.endo_names_long = char(M_.endo_names_long, 'e_i');
+M_.endo_names = char(M_.endo_names, 'Y');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Y');
+M_.endo_names_long = char(M_.endo_names_long, 'Y');
+M_.endo_names = char(M_.endo_names, 'Yi');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Yi');
+M_.endo_names_long = char(M_.endo_names_long, 'Yi');
+M_.endo_names = char(M_.endo_names, 'K');
+M_.endo_names_tex = char(M_.endo_names_tex, 'K');
+M_.endo_names_long = char(M_.endo_names_long, 'K');
+M_.endo_names = char(M_.endo_names, 'L');
+M_.endo_names_tex = char(M_.endo_names_tex, 'L');
+M_.endo_names_long = char(M_.endo_names_long, 'L');
+M_.endo_names = char(M_.endo_names, 'I');
+M_.endo_names_tex = char(M_.endo_names_tex, 'I');
+M_.endo_names_long = char(M_.endo_names_long, 'I');
+M_.endo_names = char(M_.endo_names, 'C');
+M_.endo_names_tex = char(M_.endo_names_tex, 'C');
+M_.endo_names_long = char(M_.endo_names_long, 'C');
+M_.endo_names = char(M_.endo_names, 'G');
+M_.endo_names_tex = char(M_.endo_names_tex, 'G');
+M_.endo_names_long = char(M_.endo_names_long, 'G');
+M_.endo_names = char(M_.endo_names, 'Q');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Q');
+M_.endo_names_long = char(M_.endo_names_long, 'Q');
+M_.endo_names = char(M_.endo_names, 'lambda');
+M_.endo_names_tex = char(M_.endo_names_tex, 'lambda');
+M_.endo_names_long = char(M_.endo_names_long, 'lambda');
+M_.endo_names = char(M_.endo_names, 'Lambda');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Lambda');
+M_.endo_names_long = char(M_.endo_names_long, 'Lambda');
+M_.endo_names = char(M_.endo_names, 'Rs');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Rs');
+M_.endo_names_long = char(M_.endo_names_long, 'Rs');
+M_.endo_names = char(M_.endo_names, 'R');
+M_.endo_names_tex = char(M_.endo_names_tex, 'R');
+M_.endo_names_long = char(M_.endo_names_long, 'R');
+M_.endo_names = char(M_.endo_names, 'N');
+M_.endo_names_tex = char(M_.endo_names_tex, 'N');
+M_.endo_names_long = char(M_.endo_names_long, 'N');
+M_.endo_names = char(M_.endo_names, 'Ne');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Ne');
+M_.endo_names_long = char(M_.endo_names_long, 'Ne');
+M_.endo_names = char(M_.endo_names, 'Nn');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Nn');
+M_.endo_names_long = char(M_.endo_names_long, 'Nn');
+M_.endo_names = char(M_.endo_names, 'nu');
+M_.endo_names_tex = char(M_.endo_names_tex, 'nu');
+M_.endo_names_long = char(M_.endo_names_long, 'nu');
+M_.endo_names = char(M_.endo_names, 'eta');
+M_.endo_names_tex = char(M_.endo_names_tex, 'eta');
+M_.endo_names_long = char(M_.endo_names_long, 'eta');
+M_.endo_names = char(M_.endo_names, 'phi');
+M_.endo_names_tex = char(M_.endo_names_tex, 'phi');
+M_.endo_names_long = char(M_.endo_names_long, 'phi');
+M_.endo_names = char(M_.endo_names, 'z');
+M_.endo_names_tex = char(M_.endo_names_tex, 'z');
+M_.endo_names_long = char(M_.endo_names_long, 'z');
+M_.endo_names = char(M_.endo_names, 'x');
+M_.endo_names_tex = char(M_.endo_names_tex, 'x');
+M_.endo_names_long = char(M_.endo_names_long, 'x');
+M_.endo_names = char(M_.endo_names, 'Pi');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Pi');
+M_.endo_names_long = char(M_.endo_names_long, 'Pi');
+M_.endo_names = char(M_.endo_names, 'w');
+M_.endo_names_tex = char(M_.endo_names_tex, 'w');
+M_.endo_names_long = char(M_.endo_names_long, 'w');
+M_.endo_names = char(M_.endo_names, 'U');
+M_.endo_names_tex = char(M_.endo_names_tex, 'U');
+M_.endo_names_long = char(M_.endo_names_long, 'U');
+M_.endo_names = char(M_.endo_names, 'X');
+M_.endo_names_tex = char(M_.endo_names_tex, 'X');
+M_.endo_names_long = char(M_.endo_names_long, 'X');
+M_.endo_names = char(M_.endo_names, 'D');
+M_.endo_names_tex = char(M_.endo_names_tex, 'D');
+M_.endo_names_long = char(M_.endo_names_long, 'D');
+M_.endo_names = char(M_.endo_names, 'F');
+M_.endo_names_tex = char(M_.endo_names_tex, 'F');
+M_.endo_names_long = char(M_.endo_names_long, 'F');
+M_.endo_names = char(M_.endo_names, 'Z');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Z');
+M_.endo_names_long = char(M_.endo_names_long, 'Z');
+M_.endo_names = char(M_.endo_names, 'i');
+M_.endo_names_tex = char(M_.endo_names_tex, 'i');
+M_.endo_names_long = char(M_.endo_names_long, 'i');
+M_.endo_names = char(M_.endo_names, 'delta');
+M_.endo_names_tex = char(M_.endo_names_tex, 'delta');
+M_.endo_names_long = char(M_.endo_names_long, 'delta');
+M_.endo_names = char(M_.endo_names, 'Ic');
+M_.endo_names_tex = char(M_.endo_names_tex, 'Ic');
+M_.endo_names_long = char(M_.endo_names_long, 'Ic');
+M_.endo_names = char(M_.endo_names, 'a');
+M_.endo_names_tex = char(M_.endo_names_tex, 'a');
+M_.endo_names_long = char(M_.endo_names_long, 'a');
+M_.endo_names = char(M_.endo_names, 'ksi');
+M_.endo_names_tex = char(M_.endo_names_tex, 'ksi');
+M_.endo_names_long = char(M_.endo_names_long, 'ksi');
+M_.endo_names = char(M_.endo_names, 'infl');
+M_.endo_names_tex = char(M_.endo_names_tex, 'infl');
+M_.endo_names_long = char(M_.endo_names_long, 'infl');
+M_.endo_names = char(M_.endo_names, 'infls');
+M_.endo_names_tex = char(M_.endo_names_tex, 'infls');
+M_.endo_names_long = char(M_.endo_names_long, 'infls');
+M_.endo_names = char(M_.endo_names, 'psi');
+M_.endo_names_tex = char(M_.endo_names_tex, 'psi');
+M_.endo_names_long = char(M_.endo_names_long, 'psi');
+M_.endo_partitions = struct();
+M_.param_names = 'rho_e_i';
+M_.param_names_tex = 'rho\_e\_i';
+M_.param_names_long = 'rho_e_i';
+M_.param_names = char(M_.param_names, 'sigma_e_i');
+M_.param_names_tex = char(M_.param_names_tex, 'sigma\_e\_i');
+M_.param_names_long = char(M_.param_names_long, 'sigma_e_i');
+M_.param_names = char(M_.param_names, 'betta');
+M_.param_names_tex = char(M_.param_names_tex, 'betta');
+M_.param_names_long = char(M_.param_names_long, 'betta');
+M_.param_names = char(M_.param_names, 'sigm');
+M_.param_names_tex = char(M_.param_names_tex, 'sigm');
+M_.param_names_long = char(M_.param_names_long, 'sigm');
+M_.param_names = char(M_.param_names, 'hbt');
+M_.param_names_tex = char(M_.param_names_tex, 'hbt');
+M_.param_names_long = char(M_.param_names_long, 'hbt');
+M_.param_names = char(M_.param_names, 'mu');
+M_.param_names_tex = char(M_.param_names_tex, 'mu');
+M_.param_names_long = char(M_.param_names_long, 'mu');
+M_.param_names = char(M_.param_names, 'zetta');
+M_.param_names_tex = char(M_.param_names_tex, 'zetta');
+M_.param_names_long = char(M_.param_names_long, 'zetta');
+M_.param_names = char(M_.param_names, 'gamm');
+M_.param_names_tex = char(M_.param_names_tex, 'gamm');
+M_.param_names_long = char(M_.param_names_long, 'gamm');
+M_.param_names = char(M_.param_names, 'alfa');
+M_.param_names_tex = char(M_.param_names_tex, 'alfa');
+M_.param_names_long = char(M_.param_names_long, 'alfa');
+M_.param_names = char(M_.param_names, 'eta_i');
+M_.param_names_tex = char(M_.param_names_tex, 'eta\_i');
+M_.param_names_long = char(M_.param_names_long, 'eta_i');
+M_.param_names = char(M_.param_names, 'epsil');
+M_.param_names_tex = char(M_.param_names_tex, 'epsil');
+M_.param_names_long = char(M_.param_names_long, 'epsil');
+M_.param_names = char(M_.param_names, 'thetta');
+M_.param_names_tex = char(M_.param_names_tex, 'thetta');
+M_.param_names_long = char(M_.param_names_long, 'thetta');
+M_.param_names = char(M_.param_names, 'theta_P');
+M_.param_names_tex = char(M_.param_names_tex, 'theta\_P');
+M_.param_names_long = char(M_.param_names_long, 'theta_P');
+M_.param_names = char(M_.param_names, 'kappa_p');
+M_.param_names_tex = char(M_.param_names_tex, 'kappa\_p');
+M_.param_names_long = char(M_.param_names_long, 'kappa_p');
+M_.param_names = char(M_.param_names, 'kappa_y');
+M_.param_names_tex = char(M_.param_names_tex, 'kappa\_y');
+M_.param_names_long = char(M_.param_names_long, 'kappa_y');
+M_.param_names = char(M_.param_names, 'rho_i');
+M_.param_names_tex = char(M_.param_names_tex, 'rho\_i');
+M_.param_names_long = char(M_.param_names_long, 'rho_i');
+M_.param_names = char(M_.param_names, 'rho_ksi');
+M_.param_names_tex = char(M_.param_names_tex, 'rho\_ksi');
+M_.param_names_long = char(M_.param_names_long, 'rho_ksi');
+M_.param_names = char(M_.param_names, 'sigma_ksi');
+M_.param_names_tex = char(M_.param_names_tex, 'sigma\_ksi');
+M_.param_names_long = char(M_.param_names_long, 'sigma_ksi');
+M_.param_names = char(M_.param_names, 'rho_a');
+M_.param_names_tex = char(M_.param_names_tex, 'rho\_a');
+M_.param_names_long = char(M_.param_names_long, 'rho_a');
+M_.param_names = char(M_.param_names, 'sigma_a');
+M_.param_names_tex = char(M_.param_names_tex, 'sigma\_a');
+M_.param_names_long = char(M_.param_names_long, 'sigma_a');
+M_.param_names = char(M_.param_names, 'rho_g');
+M_.param_names_tex = char(M_.param_names_tex, 'rho\_g');
+M_.param_names_long = char(M_.param_names_long, 'rho_g');
+M_.param_names = char(M_.param_names, 'sigma_g');
+M_.param_names_tex = char(M_.param_names_tex, 'sigma\_g');
+M_.param_names_long = char(M_.param_names_long, 'sigma_g');
+M_.param_names = char(M_.param_names, 'rho_psi');
+M_.param_names_tex = char(M_.param_names_tex, 'rho\_psi');
+M_.param_names_long = char(M_.param_names_long, 'rho_psi');
+M_.param_names = char(M_.param_names, 'sigma_psi');
+M_.param_names_tex = char(M_.param_names_tex, 'sigma\_psi');
+M_.param_names_long = char(M_.param_names_long, 'sigma_psi');
+M_.param_names = char(M_.param_names, 'tau');
+M_.param_names_tex = char(M_.param_names_tex, 'tau');
+M_.param_names_long = char(M_.param_names_long, 'tau');
+M_.param_names = char(M_.param_names, 'knb');
+M_.param_names_tex = char(M_.param_names_tex, 'knb');
+M_.param_names_long = char(M_.param_names_long, 'knb');
+M_.param_names = char(M_.param_names, 'varho');
+M_.param_names_tex = char(M_.param_names_tex, 'varho');
+M_.param_names_long = char(M_.param_names_long, 'varho');
+M_.param_names = char(M_.param_names, 'chi');
+M_.param_names_tex = char(M_.param_names_tex, 'chi');
+M_.param_names_long = char(M_.param_names_long, 'chi');
+M_.param_names = char(M_.param_names, 'b');
+M_.param_names_tex = char(M_.param_names_tex, 'b');
+M_.param_names_long = char(M_.param_names_long, 'b');
+M_.param_names = char(M_.param_names, 'delta_c');
+M_.param_names_tex = char(M_.param_names_tex, 'delta\_c');
+M_.param_names_long = char(M_.param_names_long, 'delta_c');
+M_.param_names = char(M_.param_names, 'I_ss');
+M_.param_names_tex = char(M_.param_names_tex, 'I\_ss');
+M_.param_names_long = char(M_.param_names_long, 'I_ss');
+M_.param_partitions = struct();
+M_.exo_det_nbr = 0;
+M_.exo_nbr = 5;
+M_.endo_nbr = 40;
+M_.param_nbr = 31;
+M_.orig_endo_nbr = 40;
+M_.aux_vars = [];
+options_.varobs = cell(1);
+options_.varobs(1)  = {'infl'};
+options_.varobs(2)  = {'Y_obs'};
+options_.varobs(3)  = {'psi'};
+options_.varobs(4)  = {'It_obs'};
+options_.varobs(5)  = {'C_obs'};
+options_.varobs_id = [ 38 2 40 3 4  ];
+M_.Sigma_e = zeros(5, 5);
+M_.Correlation_matrix = eye(5, 5);
+M_.H = 0;
+M_.Correlation_matrix_ME = 1;
+M_.sigma_e_is_diagonal = 1;
+M_.det_shocks = [];
+options_.block=0;
+options_.bytecode=0;
+options_.use_dll=0;
+M_.hessian_eq_zero = 1;
+erase_compiled_function('CP_mon_static');
+erase_compiled_function('CP_mon_dynamic');
+M_.orig_eq_nbr = 40;
+M_.eq_nbr = 40;
+M_.ramsey_eq_nbr = 0;
+M_.set_auxiliary_variables = exist(['./' M_.fname '_set_auxiliary_variables.m'], 'file') == 2;
+M_.lead_lag_incidence = [
+ 1 18 0;
+ 0 19 0;
+ 0 20 0;
+ 0 21 0;
+ 2 22 0;
+ 0 23 0;
+ 0 24 0;
+ 3 25 0;
+ 0 26 0;
+ 0 27 0;
+ 4 28 58;
+ 5 29 0;
+ 6 30 0;
+ 7 31 0;
+ 0 32 59;
+ 0 33 60;
+ 8 34 0;
+ 9 35 0;
+ 0 36 0;
+ 0 37 0;
+ 0 38 61;
+ 0 39 62;
+ 10 40 0;
+ 0 41 63;
+ 0 42 64;
+ 0 43 0;
+ 0 44 0;
+ 0 45 0;
+ 0 46 0;
+ 11 47 0;
+ 0 48 65;
+ 0 49 66;
+ 12 50 0;
+ 0 51 0;
+ 13 52 67;
+ 14 53 0;
+ 15 54 0;
+ 16 55 68;
+ 0 56 0;
+ 17 57 0;]';
+M_.nstatic = 15;
+M_.nfwrd   = 8;
+M_.npred   = 14;
+M_.nboth   = 3;
+M_.nsfwrd   = 11;
+M_.nspred   = 17;
+M_.ndynamic   = 25;
+M_.equations_tags = {
+};
+M_.static_and_dynamic_models_differ = 0;
+M_.exo_names_orig_ord = [1:5];
+M_.maximum_lag = 1;
+M_.maximum_lead = 1;
+M_.maximum_endo_lag = 1;
+M_.maximum_endo_lead = 1;
+oo_.steady_state = zeros(40, 1);
+M_.maximum_exo_lag = 0;
+M_.maximum_exo_lead = 0;
+oo_.exo_steady_state = zeros(5, 1);
+M_.params = NaN(31, 1);
+M_.NNZDerivatives = [158; -1; -1];
+M_.params( 3 ) = 0.99;
+betta = M_.params( 3 );
+M_.params( 4 ) = 0.83000000;
+sigm = M_.params( 4 );
+M_.params( 5 ) = 0.48000000;
+hbt = M_.params( 5 );
+M_.params( 6 ) = 0.3817000;
+mu = M_.params( 6 );
+M_.params( 7 ) = 7.20000000;
+zetta = M_.params( 7 );
+M_.params( 8 ) = 0.9;
+gamm = M_.params( 8 );
+M_.params( 9 ) = 0.51000000;
+alfa = M_.params( 9 );
+M_.params( 10 ) = 1.72800000;
+eta_i = M_.params( 10 );
+M_.params( 11 ) = 1.6900000;
+epsil = M_.params( 11 );
+M_.params( 12 ) = 0.71000000;
+thetta = M_.params( 12 );
+M_.params( 13 ) = 0.39000000;
+theta_P = M_.params( 13 );
+M_.params( 14 ) = 1.41000000;
+kappa_p = M_.params( 14 );
+M_.params( 15 ) = 0.14000000;
+kappa_y = M_.params( 15 );
+M_.params( 16 ) = 0.500000;
+rho_i = M_.params( 16 );
+M_.params( 17 ) = 0.66000000;
+rho_ksi = M_.params( 17 );
+M_.params( 18 ) = 0.1000000;
+sigma_ksi = M_.params( 18 );
+M_.params( 19 ) = 0.66000000;
+rho_a = M_.params( 19 );
+M_.params( 20 ) = 0.1000000;
+sigma_a = M_.params( 20 );
+M_.params( 21 ) = 0.89000000;
+rho_g = M_.params( 21 );
+M_.params( 22 ) = 0.1000000;
+sigma_g = M_.params( 22 );
+M_.params( 1 ) = 0.3;
+rho_e_i = M_.params( 1 );
+M_.params( 2 ) = 0.1;
+sigma_e_i = M_.params( 2 );
+M_.params( 23 ) = 0.42000000;
+rho_psi = M_.params( 23 );
+M_.params( 24 ) = 0.1200000;
+sigma_psi = M_.params( 24 );
+M_.params( 25 ) = 0.0100000;
+tau = M_.params( 25 );
+M_.params( 26 ) = 0.0008;
+knb = M_.params( 26 );
+M_.params( 27 ) = 0.1169;
+varho = M_.params( 27 );
+M_.params( 28 ) = 1;
+chi = M_.params( 28 );
+M_.params( 29 ) = 0.015877023;
+b = M_.params( 29 );
+M_.params( 30 ) = 0.04;
+delta_c = M_.params( 30 );
+M_.params( 31 ) = 0.8279;
+I_ss = M_.params( 31 );
+%
+% INITVAL instructions
+%
+options_.initval_file = 0;
+oo_.steady_state( 1 ) = 2.309576344;
+oo_.steady_state( 2 ) = 0;
+oo_.steady_state( 3 ) = 0;
+oo_.steady_state( 4 ) = 0;
+oo_.steady_state( 5 ) = 0;
+oo_.steady_state( 6 ) = 0.937038528;
+oo_.steady_state( 7 ) = 0.937038528;
+oo_.steady_state( 8 ) = 2.309576344;
+oo_.steady_state( 9 ) = (-0.64398914);
+oo_.steady_state( 10 ) = (-0.909299468);
+oo_.steady_state( 11 ) = 0.139418451;
+oo_.steady_state( 12 ) = 0;
+oo_.steady_state( 13 ) = 0;
+oo_.steady_state( 14 ) = (-0.217696388);
+oo_.steady_state( 15 ) = 0;
+oo_.steady_state( 16 ) = 0.012696341;
+oo_.steady_state( 17 ) = 0.01005164;
+oo_.steady_state( 18 ) = (-1.034780951);
+oo_.steady_state( 19 ) = (-1.057715411);
+oo_.steady_state( 20 ) = (-4.821322486);
+oo_.steady_state( 21 ) = (-4.808319055);
+oo_.steady_state( 22 ) = 1.125547214;
+oo_.steady_state( 23 ) = 3.344357295;
+oo_.steady_state( 24 ) = 0.082425348;
+oo_.steady_state( 25 ) = 0.082425348;
+oo_.steady_state( 26 ) = (-0.895792048);
+oo_.steady_state( 27 ) = (-0.028113732);
+oo_.steady_state( 28 ) = 0.146488767;
+oo_.steady_state( 29 ) = 0.895792048;
+oo_.steady_state( 30 ) = 5.51E-11;
+oo_.steady_state( 31 ) = 1.254940873;
+oo_.steady_state( 32 ) = 2.150728248;
+oo_.steady_state( 33 ) = 0.010054878;
+oo_.steady_state( 34 ) = (-3.218875812);
+oo_.steady_state( 35 ) = 0;
+oo_.steady_state( 36 ) = 0;
+oo_.steady_state( 37 ) = 0;
+oo_.steady_state( 38 ) = 0;
+oo_.steady_state( 39 ) = 0;
+oo_.steady_state( 40 ) = 0;
+if M_.exo_nbr > 0
+	oo_.exo_simul = ones(M_.maximum_lag,1)*oo_.exo_steady_state';
+end
+if M_.exo_det_nbr > 0
+	oo_.exo_det_simul = ones(M_.maximum_lag,1)*oo_.exo_det_steady_state';
+end
+%
+% SHOCKS instructions
+%
+M_.exo_det_length = 0;
+M_.Sigma_e(1, 1) = M_.params(20)^2;
+M_.Sigma_e(2, 2) = M_.params(18)^2;
+M_.Sigma_e(3, 3) = M_.params(22)^2;
+M_.Sigma_e(4, 4) = M_.params(24)^2;
+M_.Sigma_e(5, 5) = M_.params(2)^2;
+estim_params_.var_exo = zeros(0, 10);
+estim_params_.var_endo = zeros(0, 10);
+estim_params_.corrx = zeros(0, 11);
+estim_params_.corrn = zeros(0, 11);
+estim_params_.param_vals = zeros(0, 10);
+estim_params_.param_vals = [estim_params_.param_vals; 5, NaN, (-Inf), Inf, 1, 0.5, 0.15, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 4, NaN, (-Inf), Inf, 3, 0.85, 0.15, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 6, NaN, (-Inf), Inf, 2, 0.4, 0.1, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 10, NaN, (-Inf), Inf, 3, 1.7, 0.5, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 7, NaN, (-Inf), Inf, 3, 7.2, 2, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 13, NaN, (-Inf), Inf, 1, 0.5, 0.15, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 14, NaN, (-Inf), Inf, 3, 1.5, 0.125, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 15, NaN, (-Inf), Inf, 3, 0.125, 0.05, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 16, NaN, (-Inf), Inf, 1, 0.5, 0.1, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 17, NaN, (-Inf), Inf, 1, 0.5, 0.2, NaN, NaN, NaN ];
+estim_params_.var_exo = [estim_params_.var_exo; 2, NaN, (-Inf), Inf, 4, 0.1, 2, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 19, NaN, (-Inf), Inf, 1, 0.5, 0.2, NaN, NaN, NaN ];
+estim_params_.var_exo = [estim_params_.var_exo; 1, NaN, (-Inf), Inf, 4, 0.1, 2, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 21, NaN, (-Inf), Inf, 1, 0.5, 0.2, NaN, NaN, NaN ];
+estim_params_.var_exo = [estim_params_.var_exo; 3, NaN, (-Inf), Inf, 4, 0.1, 2, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 1, NaN, (-Inf), Inf, 1, 0.5, 0.2, NaN, NaN, NaN ];
+estim_params_.var_exo = [estim_params_.var_exo; 5, NaN, (-Inf), Inf, 4, 0.1, 2, NaN, NaN, NaN ];
+estim_params_.param_vals = [estim_params_.param_vals; 23, NaN, (-Inf), Inf, 1, 0.5, 0.2, NaN, NaN, NaN ];
+estim_params_.var_exo = [estim_params_.var_exo; 4, NaN, (-Inf), Inf, 4, 0.1, 2, NaN, NaN, NaN ];
+options_.order = 1;
+var_list_ = char('Y','C','K','I','infl');
+info = stoch_simul(var_list_);
+y0=oo_.dr.ys;
+dr=oo_.dr
+iorder=1;
+ex_=[oo_.SmoothedShocks.e_a oo_.SmoothedShocks.e_ksi oo_.SmoothedShocks.e_g oo_.SmoothedShocks.e_psi oo_.SmoothedShocks.shock_e_i]
+save results ex_;
+y_=simult_(y0,dr,ex_,1);
+epsi_ = zeros(49,1);
+ex1_=[oo_.SmoothedShocks.e_a oo_.SmoothedShocks.e_ksi oo_.SmoothedShocks.e_g epsi_ oo_.SmoothedShocks.shock_e_i]
+y1_=simult_(y0,dr,ex1_,1);
+figure
+plot(y_(strmatch('Y_obs',M_.endo_names,'exact'),:));
+title('Output (observed)');
+hold on;
+plot(y1_(strmatch('Y_obs',M_.endo_names,'exact'),:)); 
+figure
+plot(y_(strmatch('infl',M_.endo_names,'exact'),:));
+title('Inflation (observed)');
+hold on;
+plot(y1_(strmatch('infl',M_.endo_names,'exact'),:)); 
+save('CP_mon_results.mat', 'oo_', 'M_', 'options_');
+if exist('estim_params_', 'var') == 1
+  save('CP_mon_results.mat', 'estim_params_', '-append');
+end
+if exist('bayestopt_', 'var') == 1
+  save('CP_mon_results.mat', 'bayestopt_', '-append');
+end
+if exist('dataset_', 'var') == 1
+  save('CP_mon_results.mat', 'dataset_', '-append');
+end
+if exist('estimation_info', 'var') == 1
+  save('CP_mon_results.mat', 'estimation_info', '-append');
+end
+if exist('dataset_info', 'var') == 1
+  save('CP_mon_results.mat', 'dataset_info', '-append');
+end
+if exist('oo_recursive_', 'var') == 1
+  save('CP_mon_results.mat', 'oo_recursive_', '-append');
+end
+
+
+disp(['Total computing time : ' dynsec2hms(toc(tic0)) ]);
+if ~isempty(lastwarn)
+  disp('Note: warning(s) encountered in MATLAB/Octave code')
+end
+diary off

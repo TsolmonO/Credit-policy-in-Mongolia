@@ -1,0 +1,203 @@
+Starting Dynare (version 4.5.7).
+Starting preprocessing of the model file ...
+Found 40 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+Processing outputs ...
+done
+Preprocessing completed.
+pentoline('C:\dynare\4.5.7\matlab\dynare_estimation.m',105,0)">line 105</a>)
+    dynare_estimation_1(var_list,dname);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('CP_mon', 'C:\Users\tsolm\Documents\Credit policies\CP estimation\CP_mon.m', 506)" style="font-weight:bold">CP_mon</a> (<a href="matlab: opentoline('C:\Users\tsolm\Documents\Credit policies\CP estimation\CP_mon.m',506,0)">line 506</a>)
+oo_recursive_=dynare_estimation(var_list_);
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.5.7\matlab\dynare.m', 235)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.5.7\matlab\dynare.m',235,0)">line 235</a>)
+evalin('base',fname) ;
+} 
+dynare CP_mon
+
+Configuring Dynare ...
+[mex] Generalized QZ.
+[mex] Sylvester equation solution.
+[mex] Kronecker products.
+[mex] Sparse kronecker products.
+[mex] Local state space iteration (second order).
+[mex] Bytecode evaluation.
+[mex] k-order perturbation solver.
+[mex] k-order solution simulation.
+[mex] Quasi Monte-Carlo sequence (Sobol).
+[mex] Markov Switching SBVAR.
+
+Using 64-bit preprocessor
+Starting Dynare (version 4.5.7).
+Starting preprocessing of the model file ...
+Found 40 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+Processing outputs ...
+done
+Preprocessing completed.
+
+
+MODEL SUMMARY
+
+  Number of variables:         40
+  Number of stochastic shocks: 5
+  Number of state variables:   17
+  Number of jumpers:           11
+  Number of static variables:  15
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables          e_a      e_ksi        e_g      e_psi  shock_e_i
+e_a           0.010000   0.000000   0.000000   0.000000   0.000000
+e_ksi         0.000000   0.010000   0.000000   0.000000   0.000000
+e_g           0.000000   0.000000   0.010000   0.000000   0.000000
+e_psi         0.000000   0.000000   0.000000   0.014400   0.000000
+shock_e_i     0.000000   0.000000   0.000000   0.000000   0.010000
+
+POLICY AND TRANSITION FUNCTIONS
+                                   Y               C               K               I            infl
+Constant                    1.373320        0.838424        2.680552       -0.452996               0
+S(-1)                       0.000472        0.000003        0.000123        0.002922        0.000216
+e_i(-1)                    -0.653903       -0.277163       -0.124163       -3.053062       -0.413918
+K(-1)                       0.181339        0.351811        0.954531       -0.153581       -0.124252
+G(-1)                       0.186455       -0.073766       -0.000276        0.026435        0.041742
+Q(-1)                      -0.537824       -0.003102       -0.139649       -3.329121       -0.246317
+R(-1)                      -0.517478       -0.002985       -0.134366       -3.203178       -0.236999
+N(-1)                       0.020346        0.000117        0.005283        0.125943        0.009318
+phi(-1)                     0.001421        0.000008        0.000369        0.008793        0.000651
+D(-1)                      -0.132400       -0.195028       -0.011995       -0.112831        0.235484
+i(-1)                      -0.779860       -0.322642       -0.149227       -3.669926       -0.462465
+a(-1)                       0.165164        0.159072        0.023476        0.447134       -0.200981
+ksi(-1)                     1.245489        0.553935        0.870609        5.720498        0.495871
+psi(-1)                     0.030411        0.000736        0.003612        0.089791        0.004696
+C(-1)                       0.280384        0.454323        0.001259        0.088652        0.062179
+Ic(-1)                      0.182006        0.006701        0.046353        1.106051        0.058125
+infl(-1)                   -0.475960       -0.206720       -0.089663       -2.204133        0.062289
+e_a                         0.250249        0.241019        0.035570        0.677475       -0.304517
+e_ksi                       1.887104        0.839296        1.319104        8.667421        0.751319
+e_g                         0.209500       -0.082883       -0.000310        0.029702        0.046902
+e_psi                       0.076913        0.001779        0.009771        0.241681        0.013244
+shock_e_i                  -2.179676       -0.923877       -0.413878      -10.176872       -1.379728
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+Y              1.3733     0.9190     0.8445
+C              0.8384     1.1915     1.4196
+K              2.6806     1.6857     2.8417
+I             -0.4530     2.6456     6.9994
+infl           0.0000     0.2504     0.0627
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+              e_a      e_ksi        e_g      e_psi  shock_e_i
+Y            1.45      70.87       0.11       0.01      27.55
+C            1.03      83.61       0.16       0.00      15.20
+K            0.55      83.28       0.03       0.00      16.14
+I            1.23      44.50       0.03       0.02      54.21
+infl         2.28      29.10       0.09       0.01      68.53
+
+
+
+MATRIX OF CORRELATIONS
+Variables         Y       C       K       I    infl
+Y            1.0000  0.8947  0.9182  0.6879  0.2577
+C            0.8947  1.0000  0.9849  0.2964 -0.1574
+K            0.9182  0.9849  1.0000  0.3681 -0.1243
+I            0.6879  0.2964  0.3681  1.0000  0.8101
+infl         0.2577 -0.1574 -0.1243  0.8101  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order         1       2       3       4       5
+Y        0.9454  0.8771  0.8201  0.7747  0.7366
+C        0.9913  0.9768  0.9587  0.9370  0.9113
+K        0.9924  0.9736  0.9472  0.9160  0.8819
+I        0.8491  0.6427  0.4606  0.3198  0.2162
+infl     0.7408  0.4374  0.2269  0.1075  0.0457
+
+dr = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+                         order_var: [40×1 double]
+                     inv_order_var: [40×1 double]
+                            kstate: [28×4 double]
+    transition_auxiliary_variables: []
+                                ys: [40×1 double]
+                               ghx: [40×17 double]
+                               ghu: [40×5 double]
+                         state_var: [1 5 8 12 13 14 17 18 23 30 33 36 37 40 11 35 38]
+                            eigval: [28×1 double]
+                                gx: [11×17 double]
+                                Gy: [17×17 double]
+
+{Reference to non-existent field 'SmoothedShocks'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('CP_mon', 'C:\Users\tsolm\Documents\Credit policies\CP estimation\CP_mon.m', 502)" style="font-weight:bold">CP_mon</a> (<a href="matlab: opentoline('C:\Users\tsolm\Documents\Credit policies\CP estimation\CP_mon.m',502,0)">line 502</a>)
+ex_=[oo_.SmoothedShocks.e_a oo_.SmoothedShocks.e_ksi oo_.SmoothedShocks.e_g oo_.SmoothedShocks.e_psi
+oo_.SmoothedShocks.shock_e_i]
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.5.7\matlab\dynare.m', 235)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.5.7\matlab\dynare.m',235,0)">line 235</a>)
+evalin('base',fname) ;
+} 
+dynare CP_mon
+
+Configuring Dynare ...
+[mex] Generalized QZ.
+[mex] Sylvester equation solution.
+[mex] Kronecker products.
+[mex] Sparse kronecker products.
+[mex] Local state space iteration (second order).
+[mex] Bytecode evaluation.
+[mex] k-order perturbation solver.
+[mex] k-order solution simulation.
+[mex] Quasi Monte-Carlo sequence (Sobol).
+[mex] Markov Switching SBVAR.
+
+Using 64-bit preprocessor
+Starting Dynare (version 4.5.7).
+Starting preprocessing of the model file ...
+ERROR: CP_mon.mod: line 264, col 35 - line 271, col 23: syntax error, unexpected QUOTED_STRING
+
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('dynare', 'C:\dynare\4.5.7\matlab\dynare.m', 229)" style="font-weight:bold">dynare</a> (<a href="matlab: opentoline('C:\dynare\4.5.7\matlab\dynare.m',229,0)">line 229</a>)
+DYNARE: preprocessing failed
+} 
+dynare CP_mon
+
+Configuring Dynare ...
+[mex] Generalized QZ.
+[mex] Sylvester equation solution.
+[mex] Kronecker products.
+[mex] Sparse kronecker products.
+[mex] Local state space iteration (second order).
+[mex] Bytecode evaluation.
+[mex] k-order perturbation solver.
+[mex] k-order solution simulation.
+[mex] Quasi Monte-Carlo sequence (Sobol).
+[mex] Markov Switching SBVAR.
+
+Using 64-bit preprocessor
+Starting Dynare (version 4.5.7).
+Starting preprocessing of the model file ...
+Found 40 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+Processing outputs ...
+done
+Preprocessing completed.
+
